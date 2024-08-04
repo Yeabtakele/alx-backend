@@ -21,13 +21,11 @@ app.url_map.strict_slashes = False
 babel = Babel(app)
 
 
-@babel.localeselector
-def get_locale() -> str:
-    """Retrieves the locale for a web page.
 
-    Returns:
-        str: best match
-    """
+def get_locale():
+    # Your logic to determine the locale
+    return request.accept_languages.best_match(app.config['BABEL_SUPPORTED_LOCALES'])
+
     locale = request.args.get('locale')
     if locale in app.config['LANGUAGES']:
         return locale

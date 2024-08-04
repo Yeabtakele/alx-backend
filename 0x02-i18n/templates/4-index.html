@@ -7,6 +7,14 @@
 <body>
     <h1>{{ _('Hello, World!') }}</h1>
 </body>
+    <form action="/" method="get">
+        <label for="locale">{{ _("Choose your preferred language:") }}</label>
+        <select name="locale" id="locale">
+            <option value="en" {% if locale == 'en' %}selected{% endif %}>English</option>
+            <option value="fr" {% if locale == 'fr' %}selected{% endif %}>French</option>
+        </select>
+        <button type="submit">{{ _("Change") }}</button>
+    </form>
+</body>
 </html>
-
  

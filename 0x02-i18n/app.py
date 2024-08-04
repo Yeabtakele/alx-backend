@@ -44,9 +44,8 @@ def before_request() -> None:
     g.user = user
 
 
-@babel.localeselector
-def get_locale() -> str:
-    """Retrieves the locale for a web page.
+def get_locale ():
+    """your logic to determine the locale 
     """
     queries = request.query_string.decode('utf-8').split('&')
     query_table = dict(map(
@@ -65,7 +64,7 @@ def get_locale() -> str:
     return app.config['BABEL_DEFAULT_LOCALE']
 
 
-@babel.timezoneselector
+
 def get_timezone() -> str:
     """Retrieves the timezone for a web page.
     """
